@@ -1,5 +1,6 @@
 {
-  "buildCommand": "npm run build",
+  "installCommand": "npx -y pnpm@10.6.5 install --frozen-lockfile",
+  "buildCommand": "npx -y pnpm@10.6.5 -C frontend build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
