@@ -5,6 +5,9 @@
     "frontend",
     "backend"
   ],
+  "scripts": {
+    "build": "npm --workspace frontend run build"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.1"
   }
