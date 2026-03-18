@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     rootDir: backend
-    buildCommand: npm install -g pnpm && pnpm install
+    buildCommand: npm install -g pnpm && pnpm install --no-frozen-lockfile
     startCommand: npm start
     envVars:
       - key: PORT
