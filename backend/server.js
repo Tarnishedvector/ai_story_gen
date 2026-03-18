@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-
-const storyRoutes = require("./routes/storyRoutes");
-
 dotenv.config();
+
+const authRoutes = require("./routes/authRoutes");
+const storyRoutes = require("./routes/storyRoutes");
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.get("/health", (_req, res) => {
   res.json({ ok: true });
 });
 
+app.use("/auth", authRoutes);
 app.use("/", storyRoutes);
 
 const PORT = process.env.PORT || 5000;

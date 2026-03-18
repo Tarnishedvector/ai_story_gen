@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-story-backend
+    env: node
+    rootDir: backend
+    buildCommand: pnpm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      # The following must be set manually in the Render Dashboard:
+      # - DATABASE_URL (Your Neon connection string)
+      # - GEMINI_API_KEY (Your Gemini API key)
+      # - CORS_ORIGIN (The URL of your frontend once deployed)

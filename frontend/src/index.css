@@ -1,30 +1,26 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #ffffff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #c084fc;
-  --accent-bg: rgba(192, 132, 252, 0.16);
-  --accent-border: rgba(192, 132, 252, 0.55);
-  --shadow: rgba(0, 0, 0, 0.12) 0 14px 24px -12px,
-    rgba(0, 0, 0, 0.06) 0 8px 12px -8px;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-  font: 16px/1.45 system-ui, "Segoe UI", Roboto, sans-serif;
-  letter-spacing: 0.15px;
+:root {
+  --text: #8b8a91;
+  --text-h: #111113;
+  --bg: #fdfcfd;
+  --border: #eaeaec;
+  --code-bg: #f4f4f5;
+  --accent: #8b5cf6;
+  --accent-bg: rgba(139, 92, 246, 0.1);
+  --accent-border: rgba(139, 92, 246, 0.4);
+  --surface: rgba(255, 255, 255, 0.7);
+  --shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.08), 0 8px 16px -8px rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  font: 15px/1.5 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.2px;
   color-scheme: light dark;
   color: var(--text);
-  background: radial-gradient(
-      1200px 700px at 20% 0%,
-      rgba(192, 132, 252, 0.18),
-      transparent 55%
-    ),
-    radial-gradient(
-      1000px 650px at 90% 20%,
-      rgba(34, 211, 238, 0.14),
-      transparent 60%
-    ),
-    var(--bg);
+  background: radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+              radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.15), transparent 25%),
+              var(--bg);
+  background-attachment: fixed;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,13 +29,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #a8b0c0;
-    --text-h: #f3f4f6;
-    --bg: #12131a;
-    --border: #2a2c36;
-    --code-bg: #1b1d27;
-    --shadow: rgba(0, 0, 0, 0.55) 0 18px 30px -18px,
-      rgba(0, 0, 0, 0.35) 0 8px 12px -10px;
+    --text: #a1a1aa;
+    --text-h: #f4f4f5;
+    --bg: #09090b;
+    --border: #27272a;
+    --code-bg: #18181b;
+    --accent: #a78bfa;
+    --accent-bg: rgba(167, 139, 250, 0.15);
+    --accent-border: rgba(167, 139, 250, 0.5);
+    --surface: rgba(24, 24, 27, 0.65);
+    --shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.08);
   }
 }
 
