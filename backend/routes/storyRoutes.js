@@ -1,5 +1,5 @@
 const express = require("express");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const Groq = require("groq-sdk");
 const { db } = require("../db/index.js");
 const { stories } = require("../db/schema.js");
 const { desc, eq } = require("drizzle-orm");
@@ -26,25 +26,32 @@ router.post("/generate-story", auth, async (req, res) => {
       });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return res.status(500).json({
         error:
-          "Server misconfiguration: GEMINI_API_KEY is not set in the environment.",
+          "Server misconfiguration: GROQ_API_KEY is not set in the environment.",
       });
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
+    const groq = new Groq({ apiKey });
     const prompt = buildPrompt({ title, genre, character, setting, length });
 
-    const result = await model.generateContent(prompt);
-    const story = result?.response?.text?.() || "";
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      model: "llama3-8b-8192",
+    });
+
+    const story = chatCompletion.choices[0]?.message?.content || "";
 
     if (!story.trim()) {
       return res.status(502).json({
-        error: "Gemini returned an empty response. Please try again.",
+        error: "Groq returned an empty response. Please try again.",
       });
     }
 
