@@ -44,7 +44,7 @@ router.post("/generate-story", auth, async (req, res) => {
           content: prompt,
         },
       ],
-      model: "llama3-8b-8192",
+      model: "llama-3.3-70b-versatile",
     });
 
     const story = chatCompletion.choices[0]?.message?.content || "";
