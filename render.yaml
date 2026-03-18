@@ -4,13 +4,15 @@ services:
     env: node
     plan: free
     rootDir: backend
-    buildCommand: pnpm install
+    buildCommand: npm install -g pnpm && pnpm install
     startCommand: npm start
     envVars:
       - key: PORT
         value: 10000
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: 20
       # The following must be set manually in the Render Dashboard:
       # - DATABASE_URL (Your Neon connection string)
       # - GEMINI_API_KEY (Your Gemini API key)
