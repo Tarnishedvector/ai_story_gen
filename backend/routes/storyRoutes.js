@@ -1,3 +1,5 @@
+const express = require("express");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { db } = require("../db/index.js");
 const { stories } = require("../db/schema.js");
 const { desc, eq } = require("drizzle-orm");
