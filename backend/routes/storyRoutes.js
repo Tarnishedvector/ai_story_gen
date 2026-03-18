@@ -35,7 +35,7 @@ router.post("/generate-story", auth, async (req, res) => {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const prompt = buildPrompt({ title, genre, character, setting, length });
 
