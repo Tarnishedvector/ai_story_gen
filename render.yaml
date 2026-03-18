@@ -2,6 +2,7 @@ services:
   - type: web
     name: ai-story-backend
     env: node
+    plan: free
     rootDir: backend
     buildCommand: pnpm install
     startCommand: npm start
